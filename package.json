@@ -1,6 +1,6 @@
 {
-  "name": "softui-dashboard",
-  "version": "0.1.0",
+  "name": "monthly-expenses",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "vue-cli-service serve",
