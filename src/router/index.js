@@ -26,13 +26,13 @@ router.beforeEach((to, from, next) => {
   let loggedUser = store.getters.getLoggedUser;
 
   // Check if access token expired
-  if (loggedUser) {
-    let currentDateTime = new Date().getTime();
-    if (currentDateTime > loggedUser.expiryDate) {
-      store.dispatch("logOut");
-      return redirectToRoute("admin.login");
-    }
-  }
+  // if (loggedUser) {
+  //   let currentDateTime = new Date().getTime();
+  //   if (currentDateTime > loggedUser.expiryDate) {
+  //     store.dispatch("logOut");
+  //     return redirectToRoute("admin.login");
+  //   }
+  // }
 
   // Auth
   if (to.meta.auth) {

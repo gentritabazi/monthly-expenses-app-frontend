@@ -11,7 +11,7 @@ const service = axios.create({
 
 // Token
 if (store.getters.getLoggedUser) {
-  service.defaults.headers.common["Authorization"] = "Bearer " + store.getters.getLoggedUser.access_token;
+  service.defaults.headers.common["Authorization"] = "Bearer " + store.getters.getLoggedUser.token;
 }
 
 // Request Interceptor
@@ -72,7 +72,6 @@ service.interceptors.response.use(
       }
     }
 
-    // console.log()
     showNotification({
       message: String(errors),
       type: "warning",

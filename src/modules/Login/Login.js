@@ -16,12 +16,12 @@ export default {
   },
 
   methods: {
-    login() {
-      const response = Api.post("/login", { email: self.email, password: self.password });
+    async login() {
+      const response = await Api.post("/auth/login", { email: this.email, password: this.password });
 
-      self.$store.commit("LOGGED_USER", response.data);
+      this.$store.commit("LOGGED_USER", response.data);
 
-      self.$router.go({ name: "admin.dashboard" });
+      this.$router.go({ name: "admin.dashboard" });
     },
   },
 };
