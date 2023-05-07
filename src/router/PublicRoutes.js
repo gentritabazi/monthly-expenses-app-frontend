@@ -1,5 +1,6 @@
 // Import Modules
 const login = () => import("@/modules/Login");
+const register = () => import("@/modules/Register");
 
 // Export
 export default [
@@ -14,6 +15,14 @@ export default [
     path: "/admin/login",
     component: login,
     name: "admin.login",
+    meta: { guest: true },
+  },
+
+  // Register
+  {
+    path: "/admin/register",
+    component: register,
+    name: "admin.register",
     meta: { guest: true },
   },
 ];
