@@ -25,10 +25,12 @@
             </div>
 
             <div class="text-center">
-              <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2" @click="login">Register</button>
+              <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2" @click="register">Register</button>
             </div>
 
-            <p class="text-sm mt-3 mb-0 text-center">Don't have an account? <a href="#" class="text-dark font-weight-bolder">Sign up</a></p>
+            <p class="text-sm mt-3 mb-0 text-center">
+              You have an account? <router-link :to="{ name: 'login' }" class="text-dark font-weight-bolder">Login</router-link>
+            </p>
           </form>
         </div>
       </div>

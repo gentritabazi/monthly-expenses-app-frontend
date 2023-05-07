@@ -20,7 +20,9 @@
             <div class="text-center">
               <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2" @click="login">Sign in</button>
             </div>
-            <p class="text-sm mt-3 mb-0 text-center">Don't have an account? <a href="#" class="text-dark font-weight-bolder">Sign up</a></p>
+            <p class="text-sm mt-3 mb-0 text-center">
+              Don't have an account? <router-link :to="{ name: 'register' }" class="text-dark font-weight-bolder">Sign up</router-link>
+            </p>
           </form>
         </div>
       </div>
