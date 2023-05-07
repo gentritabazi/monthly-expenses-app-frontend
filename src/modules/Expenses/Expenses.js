@@ -24,6 +24,7 @@ export default {
     async getExpenses() {
       if (AppConfig.DEMO_MODE) {
         this.expenses = ExpensesData;
+        return;
       }
 
       const response = await Api.get("/expenses");
