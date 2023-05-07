@@ -2,6 +2,8 @@
 
 App that allows you to track your expenses on a monthly basis. With this app, you can easily input your monthly expenses, categorize them, and visualize your spending habits.
 
+Check backend app [here](https://github.com/gentritabazi/monthly-expenses-app-backend).
+
 ## Requirements
 
 NodeJs Version >= 14.x
