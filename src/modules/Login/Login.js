@@ -21,7 +21,7 @@ export default {
 
       this.$store.commit("LOGGED_USER", response.data);
 
-      this.$router.go({ name: "admin.dashboard" });
+      this.$router.go({ name: "dashboard" });
     },
   },
 };

@@ -6,23 +6,23 @@ const expenses = () => import("@/modules/Expenses");
 export default [
   // Dashboard
   {
-    path: "/admin/dashboard",
+    path: "/dashboard",
     component: dashboard,
-    name: "admin.dashboard",
+    name: "dashboard",
     meta: {
-      // auth: true,
-      breadCrumb: [{ name: "Dashboard", link: "admin.dashboard" }],
+      auth: true,
+      breadCrumb: [{ name: "Dashboard", link: "dashboard" }],
     },
   },
 
   // Users
   {
-    path: "/admin/expenses",
+    path: "/expenses",
     component: expenses,
-    name: "admin.expenses",
+    name: "expenses",
     meta: {
-      // auth: true,
-      breadCrumb: [{ name: "Expenses", link: "admin.expenses" }],
+      auth: true,
+      breadCrumb: [{ name: "Expenses", link: "expenses" }],
     },
   },
 ];

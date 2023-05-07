@@ -20,7 +20,7 @@ export default {
     login() {
       Api.post("/auth/register", { name: this.name, email: this.email, password: this.password });
 
-      self.$router.go({ name: "admin.login" });
+      self.$router.go({ name: "login" });
     },
   },
 };

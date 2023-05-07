@@ -1,19 +1,20 @@
 // Import
 import { createWebHistory, createRouter } from "vue-router";
-import publicRoutes from "./PublicRoutes.js";
-import privateRoutes from "./PrivateRoutes.js";
-import store from "@/store";
+import PublicRoutes from "./PublicRoutes.js";
+import PrivateRoutes from "./PrivateRoutes.js";
+import Store from "@/store";
+import AppConfig from "@/config/app";
 
 // Start vue router
 const router = createRouter({
   history: createWebHistory(),
-  routes: [...publicRoutes, ...privateRoutes],
+  routes: [...PublicRoutes, ...PrivateRoutes],
 });
 
 // Middlewares
 router.beforeEach((to, from, next) => {
   // Redirect to route
-  let redirectToRoute = function (name) {
+  const redirectToRoute = function (name) {
     if (name === from.name) {
       next();
       return;
@@ -23,27 +24,24 @@ router.beforeEach((to, from, next) => {
   };
 
   // Get logged user
-  let loggedUser = store.getters.getLoggedUser;
-
-  // Check if access token expired
-  // if (loggedUser) {
-  //   let currentDateTime = new Date().getTime();
-  //   if (currentDateTime > loggedUser.expiryDate) {
-  //     store.dispatch("logOut");
-  //     return redirectToRoute("admin.login");
-  //   }
-  // }
+  const loggedUser = Store.getters.getLoggedUser;
 
   // Auth
   if (to.meta.auth) {
-    if (loggedUser) return next();
-    else return redirectToRoute("admin.login");
+    if (loggedUser || AppConfig.DEMO_MODE) {
+      return next();
+    }
+
+    return redirectToRoute("login");
   }
 
   // Guest
   if (to.meta.guest) {
-    if (loggedUser) return redirectToRoute("admin.dashboard");
-    else return next();
+    if (!loggedUser || AppConfig.DEMO_MODE) {
+      return next();
+    }
+
+    return redirectToRoute("dashboard");
   }
 
   next();

@@ -7,22 +7,22 @@ export default [
   // Home
   {
     path: "/",
-    redirect: "/admin/dashboard",
+    redirect: "/dashboard",
   },
 
   // Login
   {
-    path: "/admin/login",
+    path: "/login",
     component: login,
-    name: "admin.login",
+    name: "login",
     meta: { guest: true },
   },
 
   // Register
   {
-    path: "/admin/register",
+    path: "/register",
     component: register,
-    name: "admin.register",
+    name: "register",
     meta: { guest: true },
   },
 ];
