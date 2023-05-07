@@ -1,11 +1,17 @@
 <AdminLayout>
   <div class="col-12">
+    <div class="text-right">
+      <router-link :to="{ name: 'admin.dashboard' }" class="btn btn-primary">Create</router-link>
+    </div>
+  </div>
+
+  <div class="col-12">
     <div class="card mb-4">
       <div class="card-header pb-0">
         <h6>Expenses</h6>
       </div>
 
-      <div class="card-body px-0 pt-0 pb-2">
+      <div class="card-body px-0 pt-0 pb-2" style="min-height: 400px">
         <div class="table-responsive p-0">
           <table class="table align-items-center mb-0">
             <thead>
@@ -22,7 +28,7 @@
               <tr v-for="expense in expenses" :key="expense.id">
                 <td>
                   <div class="d-flex px-2 py-1">
-                    <p class="text-xs font-weight-bold mb-0">{{ expense.description }}</p>
+                    <p class="text-xs font-weight-bold mb-0">{{ expense.note }}</p>
                   </div>
                 </td>
 
@@ -31,7 +37,7 @@
                 </td>
 
                 <td class="align-middle text-center text-sm">
-                  <p class="text-xs font-weight-bold mb-0">{{ expense.category }}</p>
+                  <p class="text-xs font-weight-bold mb-0">{{ expense.category.name }}</p>
                 </td>
 
                 <td class="align-middle text-center">

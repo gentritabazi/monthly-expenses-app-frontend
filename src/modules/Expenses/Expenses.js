@@ -1,5 +1,7 @@
 import AdminLayout from "@/layouts/Admin";
-import expenses from "./data/expenses";
+import ExpensesData from "./demo/expenses";
+import Api from "@/utils/api";
+import AppConfig from "@/config/app";
 
 export default {
   name: "Expenses",
@@ -10,7 +12,22 @@ export default {
 
   data() {
     return {
-      expenses,
+      expenses: {},
     };
+  },
+
+  mounted() {
+    this.getExpenses();
+  },
+
+  methods: {
+    async getExpenses() {
+      if (AppConfig.DEMO_MODE) {
+        this.expenses = ExpensesData;
+      }
+
+      const response = await Api.get("/expenses");
+      this.expenses = response.data;
+    },
   },
 };
