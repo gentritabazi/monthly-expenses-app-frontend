@@ -18172,6 +18172,11 @@ p {
   }
 }
 
+.btn-logout {
+  border: 0;
+  background: transparent;
+}
+
 .navbar-vertical .navbar-brand-img,
 .navbar-vertical .navbar-brand > img {
   max-width: 100%;

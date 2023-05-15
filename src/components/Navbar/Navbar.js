@@ -1,3 +1,5 @@
+import AppConfig from "@/config/app";
+
 export default {
   name: "Sidenav",
 
@@ -20,8 +22,15 @@ export default {
 
   methods: {
     updateList() {
-      this.breadCrumbList = this.$route.meta.breadCrumb;
+      this.breadCrumbList = this.$route.meta.breadCrumb ?? [];
       this.breadCrumbTotal = this.breadCrumbList.length;
+    },
+
+    logout() {
+      if (AppConfig.DEMO_MODE) {
+        this.$router.push({ name: "login" });
+        return;
+      }
     },
   },
 };
