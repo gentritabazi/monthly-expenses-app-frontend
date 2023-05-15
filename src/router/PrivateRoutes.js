@@ -1,6 +1,7 @@
 // Import Modules
 const dashboard = () => import("@/modules/Dashboard");
 const expenses = () => import("@/modules/Expenses");
+const categories = () => import("@/modules/Categories");
 
 // Export
 export default [
@@ -15,7 +16,7 @@ export default [
     },
   },
 
-  // Users
+  // Expenses
   {
     path: "/expenses",
     component: expenses,
@@ -23,6 +24,17 @@ export default [
     meta: {
       auth: true,
       breadCrumb: [{ name: "Expenses", link: "expenses" }],
+    },
+  },
+
+  // Categories
+  {
+    path: "/categories",
+    component: categories,
+    name: "categories",
+    meta: {
+      auth: true,
+      breadCrumb: [{ name: "Categories", link: "categories" }],
     },
   },
 ];

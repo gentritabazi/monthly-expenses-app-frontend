@@ -1,0 +1,42 @@
+<AdminLayout>
+  <div class="col-12">
+    <div class="text-right">
+      <router-link :to="{ name: 'dashboard' }" class="btn btn-primary disabled">Create</router-link>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="card mb-4">
+      <div class="card-header pb-0">
+        <h6>Categories</h6>
+      </div>
+
+      <div class="card-body px-0 pt-0 pb-2" style="min-height: 400px">
+        <div class="table-responsive p-0">
+          <table class="table align-items-center mb-0">
+            <thead>
+              <tr>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr v-for="category in categories" :key="category.id">
+                <td>
+                  <div class="d-flex px-2 py-1">
+                    <p class="text-xs font-weight-bold mb-0">{{ category.name }}</p>
+                  </div>
+                </td>
+
+                <td class="align-middle">
+                  <a href="#" class="text-secondary font-weight-bold text-xs disabled">Edit</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</AdminLayout>
